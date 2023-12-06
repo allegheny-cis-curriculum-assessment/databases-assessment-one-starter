@@ -35,7 +35,7 @@
 
 Don't forget that you'll need to `commit` changes to the database file by
 including the database file itself (`db/news_data.db`) in your `commit`s. The
-use of the `gatorgrade` command will not be able to assess your work if you
+use of the `gatorgrade` command will not positively assess your work if you
 don't `commit` your changes to the database file!
 
 ## 🧗 Introduction
