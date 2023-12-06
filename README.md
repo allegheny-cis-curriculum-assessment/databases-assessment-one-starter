@@ -105,7 +105,7 @@ the assessment will be disabled after the assessment's due date.**
 After accepting the assignment and opening it in GitHub Codespaces, please follow these instructions:
 
 - Study the instructions and source code for the assessment that are available in this file: `assessment.py`
-- For each file there are six sub-parts, denoted as `Part One` through `Part Six` in the provided Python source code.
+- For each file there are six sub-parts, denoted as `Part Zero` through `Part Five` in the provided Python source code.
 - Following the instructions for each sub-part, you should provide and/or modify the requested function(s) so as to
 ensure that they meet the specification. When you read the commented source code for each sub-part you will see examples
 of what output the requested function will produce when it is provided with the given input(s).
