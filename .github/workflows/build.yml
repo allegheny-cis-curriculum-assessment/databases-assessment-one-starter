@@ -1,0 +1,63 @@
+# Basic workflow
+name: build
+
+# Use more columns for terminal output
+env:
+  COLUMNS: 120
+  PYTHONIOENCODING: utf8
+
+# Controls when the action will run
+# Workflow begins with push or PR events
+# Focuses on the main branch only
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+# Create one single job
+# This job performs all necessary checks
+jobs:
+  build:
+    # do not allow a build to run for more than 10 minutes
+    timeout-minutes: 5
+    # Use the latest version of Ubuntu
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        # Performs all actions on different versions of Python
+        python-version: ["3.10"]
+        os: [ubuntu-latest]
+    # Define the workflow steps
+    steps:
+    # Checkout the code of the repository
+        - name: Check out Repository Code
+          uses: actions/checkout@v3
+          with:
+            fetch-depth: 0
+        # Setup Python for the current language version
+        - name: Setup Python ${{ matrix.python-version }}
+          if: always()
+          uses: actions/setup-python@v4
+          with:
+            python-version: ${{ matrix.python-version }}
+        # Install pip
+        - name: Install Pip
+          if: always()
+          run: |
+            pip install -U pip
+            python -m pip install --user pipx
+        # Run the Python programs
+        - name: Run Python Programs
+          if: always()
+          run: |
+            python source/assessment.py
+        # Run GatorGrader: use the gatorgrade.yml in repository's root
+        - name: Run GatorGrader with GatorGrade
+          if: always()
+          env:
+            GATORGRADE_GPG_PASSPHRASE: ${{ secrets.GATORGRADE_GPG_PASSPHRASE }}
+          run:  |
+           pipx install gatorgrade
+           pipx list
+           gatorgrade --report env md GITHUB_STEP_SUMMARY
