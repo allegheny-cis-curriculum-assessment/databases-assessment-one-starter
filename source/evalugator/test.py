@@ -30,45 +30,63 @@ def test_part_one():
         return False
 
 def test_part_two():
-    part_one_connection = assessment.create_or_connect_db(FILE_NAME)
-    part_two_output = assessment.query_prolific_author(part_one_connection.cursor())
     try:
+        part_one_connection = assessment.create_or_connect_db(FILE_NAME)
+        part_two_output = assessment.query_prolific_author(part_one_connection.cursor())
         assert part_two_output == 46
         return True
     except AssertionError:
         return False
+    except sqlite3.OperationalError:
+        return ""
+    except AttributeError: 
+        return ""
 
 def test_part_three():
-    part_one_connection = assessment.create_or_connect_db(FILE_NAME)
-    part_two_output = assessment.query_prolific_author(part_one_connection.cursor())
-    part_three_output = assessment.query_stories_by_author(part_one_connection.cursor(), part_two_output)
     try:
+        part_one_connection = assessment.create_or_connect_db(FILE_NAME)
+        part_two_output = assessment.query_prolific_author(part_one_connection.cursor())
+        part_three_output = assessment.query_stories_by_author(part_one_connection.cursor(), part_two_output)
         assert len(part_three_output) == 13
         return True
     except AssertionError:
         return False
+    except sqlite3.OperationalError:
+        print("It appears that there's an issue with the query; are all tables created?")
+        return ""
+    except AttributeError:
+        print("It appears that there're still some queries to finish.")
+        return ""
 
 def test_part_four():
-    part_one_connection = assessment.create_or_connect_db(FILE_NAME)
-    part_two_output = assessment.query_prolific_author(part_one_connection.cursor())
-    part_four_output = assessment.query_author_by_id(part_one_connection.cursor(), part_two_output)
     try:
+        part_one_connection = assessment.create_or_connect_db(FILE_NAME)
+        part_two_output = assessment.query_prolific_author(part_one_connection.cursor())
+        part_four_output = assessment.query_author_by_id(part_one_connection.cursor(), part_two_output)
         assert part_four_output == "Isaiah Foster"
         return True
     except AssertionError:
         return False
+    except sqlite3.OperationalError:
+        return ""
+    except AttributeError:
+        return ""
 
 def test_part_five():
-    part_one_connection = assessment.create_or_connect_db(FILE_NAME)
-    part_two_output = assessment.query_prolific_author(part_one_connection.cursor())
-    part_five_output = assessment.update_author_status(
-        part_one_connection,
-        part_one_connection.cursor(),
-        part_two_output,
-        "ACTIVE"
-    )
     try:
+        part_one_connection = assessment.create_or_connect_db(FILE_NAME)
+        part_two_output = assessment.query_prolific_author(part_one_connection.cursor())
+        part_five_output = assessment.update_author_status(
+            part_one_connection,
+            part_one_connection.cursor(),
+            part_two_output,
+            "ACTIVE"
+        )
         assert part_five_output == {'author': 46, 'status': 'ACTIVE', 'updated': True}
         return True
     except AssertionError:
         return False
+    except sqlite3.OperationalError:
+        return ""
+    except AttributeError:
+        return ""
