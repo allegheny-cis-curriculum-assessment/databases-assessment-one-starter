@@ -63,7 +63,7 @@ setup: |
     command: "sqlite3 db/news_data.db '.selftest'"
     fragment: "0 errors out of 3 tests"
     count: 1
-    exact: true 
+    exact: true
 
 - description: "SQLite3 correct tables exist in database db/news_data.db"
   check: MatchCommandFragment
