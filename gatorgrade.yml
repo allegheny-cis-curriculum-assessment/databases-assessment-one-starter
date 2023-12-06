@@ -1,4 +1,3 @@
-
 setup: |
   echo "🐊 Attempt to install ruff"
   echo "🐊 Will not re-install if already installed"
