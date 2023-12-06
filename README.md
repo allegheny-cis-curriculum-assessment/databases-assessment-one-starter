@@ -31,6 +31,12 @@
 - [ ] Ask a professor if you have any questions about this assessment
 - [ ] Complete as much of the assessment as you can in fifty minutes
 
+##☝ Reminders
+
+Don't forget that you'll need to `commit` changes to the database file by including
+the database file itself (`db/news_data.db`) in your `commit`s. The grader will not
+be able to assess your work if you don't!
+
 ## 🧗 Introduction
 
 If you are a student completing this assessment as part of a class at Allegheny
