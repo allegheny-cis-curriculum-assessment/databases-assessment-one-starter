@@ -112,9 +112,9 @@ Function specification:
 
 
 def query_prolific_author(cursor: sqlite3.Cursor, mode: str = "DESC") -> int:
-    """Finds author ID of most prolific author"""
+    """Find author ID of most prolific author."""
     cursor.execute(
-        # TODO: Write query to for metadata table to retrieve the author
+        # TODO: Write query for the metadata table to retrieve the author
         #       who has published the most stories
     )
     individual = cursor.fetchone()
