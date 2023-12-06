@@ -73,7 +73,7 @@ from evalugator import constants, run, test
 
 # > CREATE TABLE authors(id, lname, fname, status);
 # > .mode csv
-# > .import data/authors.csv
+# > .import data/authors.csv authors
 
 # TODO: Remember to commit all your changes to the database file (db/news_data.db)!
 
