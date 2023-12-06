@@ -205,7 +205,7 @@ def update_author_status(
     author_id: int = 1,
     status: str = "INACTIVE",
 ) -> dict:
-    """Change status of an author to value of status string"""
+    """Change status of an author to value of status string."""
     cursor.execute(
         # TODO: Write update query to change the status of an author in the authors
         #       table, given the and author_id
