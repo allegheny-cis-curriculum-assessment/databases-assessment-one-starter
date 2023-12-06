@@ -11,7 +11,7 @@ Introduction: Read This First!
 A team at a newspaper is building a content management system (CMS) to manage
 and publish news stories to its website using a stack including Python. The
 team chose SQLITE3 as a database for its system, and needs to migrate data from
-a previous CMS into their new one. To do testing, they’ve put together 3
+a previous CMS into their new one. To do testing, they've put together 3
 tables:
 
 - authors
@@ -22,7 +22,7 @@ To make sure the migration and technology are up to par, the developers need to
 test the ability of the new system to migrate files and display all relevant
 story data including story author(s), titles, and relevant metadata information
 on a site front page. This demonstration must also provide the ability to
-change an author’s status given an author’s last name and ID number.
+change an author's status given an author's last name and ID number.
 
 You will implement two key deliverables in this assessment:
 
@@ -87,7 +87,7 @@ Function specification:
 
 
 def create_or_connect_db(db_name: str = "") -> sqlite3.Connection:
-    """Creates or connects to the database"""
+    """Create or connect to the database."""
     conn = None
     db_path = Path(db_name)
     # TODO: Create connection to database at db_path using conn
