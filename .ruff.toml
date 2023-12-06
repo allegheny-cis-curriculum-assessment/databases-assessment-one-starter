@@ -1,0 +1,16 @@
+line-length = 88 # use the black default for line length
+ignore = [
+    "E501", # do not check line length
+    "D203", # do not check blank line before class docstring
+    "D213", # do not check multi-line docstring summary on second line
+]
+select = [
+    "E",    # pycodestyle errors
+    "D",    # pydocstyle errors
+    "I",    # isort
+    "F",    # Pyflakes
+    "PL",   # pylint
+    "Q",    # flake8-quotes
+    "RUF",  # ruff-specific
+    "W",    # pycodestyle warnings
+]
