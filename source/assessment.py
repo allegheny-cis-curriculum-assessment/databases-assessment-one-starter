@@ -141,7 +141,7 @@ Function specification:
 
 
 def query_stories_by_author(cursor: sqlite3.Cursor, author_id: int = 1) -> list:
-    """Find all stories by a given author by ID, return relevant data"""
+    """Find all stories by a given author by ID, return relevant data."""
     cursor.execute(
         # TODO: Write query that, provided an author ID, joins all tables to
         #       retrieve the date, section name, title of article, first name and
@@ -172,7 +172,7 @@ Function specification:
 
 
 def query_author_by_id(cursor: sqlite3.Cursor, author_id: int = 1) -> str:
-    """Finds the author name by ID only"""
+    """Find the author name by ID only."""
     cursor.execute(
         # TODO: Write query to find an author fname and lname given an author_id
         (author_id,)
