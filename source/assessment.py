@@ -75,6 +75,8 @@ from evalugator import constants, run, test
 # > .mode csv
 # > .import data/authors.csv
 
+# TODO: Remember to commit all your changes to the database file (db/news_data.db)!
+
 # Part One
 
 # Instructions:
