@@ -61,8 +61,8 @@ Part Zero
 
 Instructions:
 
-Using the sqlite3 CLI program, import the 3 files from the data/ folder  to create
-representative database tables:
+TODO:   Using the sqlite3 CLI program, import the 3 files from the data/ folder  to create
+        representative database tables:
 
   - create `metadata` from `metadata.csv`
   - create `stories` from `stories.csv`
@@ -86,10 +86,12 @@ Function specification:
 """
 
 
-def create_or_connect_db(dbname: str = "") -> sqlite3.Connection:
-    """Creates or connects to the database; preferably just connects"""
-    db_path = Path(dbname)
-    conn = sqlite3.connect(db_path)
+def create_or_connect_db(db_name: str = "") -> sqlite3.Connection:
+    """Creates or connects to the database"""
+    conn = None
+    db_path = Path(db_name)
+    # TODO: Create connection to database at db_path using conn 
+    #       variable identifier
     return conn
 
 
@@ -112,9 +114,8 @@ Function specification:
 def query_prolific_author(cursor: sqlite3.Cursor, mode: str = "DESC") -> int:
     """Finds author ID of most prolific author"""
     cursor.execute(
-        f"""SELECT author_id FROM metadata
-                     GROUP BY author_id
-                     ORDER BY count(author_id) {mode}"""
+        # TODO: Write query to for metadata table to retrieve the author 
+        #       who has published the most stories
     )
     individual = cursor.fetchone()
     return individual[0]
@@ -142,11 +143,10 @@ Function specification:
 def query_stories_by_author(cursor: sqlite3.Cursor, author_id: int = 1) -> list:
     """Find all stories by a given author by ID, return relevant data"""
     cursor.execute(
-        """SELECT date, section, title, fname, lname FROM stories
-                      LEFT JOIN metadata ON stories.id = metadata.id
-                      INNER JOIN authors ON metadata.author_id = authors.id
-                      WHERE metadata.author_id = ?""",
-        (author_id,),
+        # TODO: Write query that, provided an author ID, joins all tables to
+        #       retrieve the date, section name, title of article, first name and
+        #       last name,
+        (author_id,)
     )
     return [
         f'{date} [{section}] "{title}" {fname} {lname}'
@@ -173,7 +173,10 @@ Function specification:
 
 def query_author_by_id(cursor: sqlite3.Cursor, author_id: int = 1) -> str:
     """Finds the author name by ID only"""
-    cursor.execute("SELECT fname, lname FROM authors WHERE id = ?", (author_id,))
+    cursor.execute(
+        # TODO: Write query to find an author fname and lname given an author_id
+        (author_id,)
+    )
     records = cursor.fetchall()
     return f"{records[0][0]} {records[0][1]}"
 
@@ -203,7 +206,11 @@ def update_author_status(
     status: str = "INACTIVE",
 ) -> dict:
     """Change status of an author to value of status string"""
-    cursor.execute("UPDATE authors SET status = ? WHERE id = ?", (status, author_id))
+    cursor.execute(
+        # TODO: Write update query to change the status of an author in the authors
+        #       table, given the and author_id 
+        (status, author_id)
+    )
     conn.commit()
     response = {"author": author_id, "status": status, "updated": False}
     if cursor.rowcount == 1:
