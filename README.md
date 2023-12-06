@@ -41,9 +41,9 @@ assessment, please see the course instructor during the assessment time period.
 You must read and ensure that you understand all of the instructions in this
 file before starting the assessment.
 
-## 😁 Note: Add Your Name Here
+## 😁 TODO: Add Your Name Here
 
-Note: You must delete `Add Your Name Here` add your name to the subsection header
+TODO: You must delete `Add Your Name Here` and add your name to the subsection header
 
 ## 🚧 Honor Code
 
