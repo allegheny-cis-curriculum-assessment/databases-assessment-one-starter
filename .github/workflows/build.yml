@@ -55,8 +55,6 @@ jobs:
         # Run GatorGrader: use the gatorgrade.yml in repository's root
         - name: Run GatorGrader with GatorGrade
           if: always()
-          env:
-            GATORGRADE_GPG_PASSPHRASE: ${{ secrets.GATORGRADE_GPG_PASSPHRASE }}
           run:  |
            pipx install gatorgrade
            pipx list
