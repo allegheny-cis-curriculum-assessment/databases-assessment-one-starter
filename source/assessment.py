@@ -65,6 +65,15 @@ from evalugator import constants, run, test
 #  - create stories from stories.csv
 #  - create authors from authors.csv
 
+# As a reminder, to do this, you'll need to look a the CSVs in question
+# and execute the proper commmands in a sqlite3 interactive session using
+# the CLI command: sqlite3.
+
+# For example, creating the authors table might look like:
+
+# > CREATE TABLE authors(id, lname, fname, status);
+# > .mode csv
+# > .import data/authors.csv
 
 # Part One
 
