@@ -1,8 +1,8 @@
 """An assessment for the Databases course."""
 
 import sqlite3
-
 from pathlib import Path
+
 from evalugator import constants, run, test
 
 """
@@ -90,7 +90,7 @@ def create_or_connect_db(db_name: str = "") -> sqlite3.Connection:
     """Creates or connects to the database"""
     conn = None
     db_path = Path(db_name)
-    # TODO: Create connection to database at db_path using conn 
+    # TODO: Create connection to database at db_path using conn
     #       variable identifier
     return conn
 
@@ -114,7 +114,7 @@ Function specification:
 def query_prolific_author(cursor: sqlite3.Cursor, mode: str = "DESC") -> int:
     """Finds author ID of most prolific author"""
     cursor.execute(
-        # TODO: Write query to for metadata table to retrieve the author 
+        # TODO: Write query to for metadata table to retrieve the author
         #       who has published the most stories
     )
     individual = cursor.fetchone()
@@ -208,7 +208,7 @@ def update_author_status(
     """Change status of an author to value of status string"""
     cursor.execute(
         # TODO: Write update query to change the status of an author in the authors
-        #       table, given the and author_id 
+        #       table, given the and author_id
         (status, author_id)
     )
     conn.commit()
