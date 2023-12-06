@@ -1,4 +1,4 @@
-"""An assessment for the Databases course."""
+"""An assessment for the Database Systems course."""
 
 import sqlite3
 from pathlib import Path
