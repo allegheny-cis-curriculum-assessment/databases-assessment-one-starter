@@ -85,6 +85,11 @@ def run_part_four():
             "It appears that there's an issue with the query; are all tables created?"
         )
         return ""
+    except sqlite3.ProgrammingError:
+        print(
+            "It appears that were missing parameters to the query; did you add them all?"
+        )
+        return ""
     except AttributeError:
         print("It appears that there're still some queries to finish.")
         return ""
@@ -105,6 +110,11 @@ def run_part_five():
     except sqlite3.OperationalError:
         print(
             "It appears that there's an issue with the query; are all tables created?"
+        )
+        return ""
+    except sqlite3.ProgrammingError:
+        print(
+            "It appears that were missing parameters to the query; did you add them all?"
         )
         return ""
     except AttributeError:
