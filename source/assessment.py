@@ -128,7 +128,7 @@ def query_prolific_author(cursor: sqlite3.Cursor, mode: str = "DESC") -> int:
     individual = cursor.fetchone()
     if individual:
         return individual[0]
-    return None
+    return 0
 
 
 # Part Three
