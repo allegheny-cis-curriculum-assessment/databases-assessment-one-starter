@@ -143,10 +143,12 @@ def query_prolific_author(cursor: sqlite3.Cursor, mode: str = "DESC") -> int:
 
 def query_stories_by_author(cursor: sqlite3.Cursor, author_id: int = 1) -> list:
     """Find all stories by a given author by ID, return relevant data."""
+    # TODO: Write query that, provided an author ID, joins all tables to
+    #       retrieve the date, section name, title of article, first name and
+    #       last name. You must add the update query in the empty string that is
+    #       provided as a parameter to the execute function.
     cursor.execute(
-        # TODO: Write query that, provided an author ID, joins all tables to
-        #       retrieve the date, section name, title of article, first name and
-        #       last name,
+        """""",
         (author_id,)
     )
     return [
