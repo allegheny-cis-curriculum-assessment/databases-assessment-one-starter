@@ -1,6 +1,10 @@
 # Basic workflow
 name: build
 
+# Allow write permissions
+permissions:
+  contents: write
+
 # Use more columns for terminal output
 env:
   COLUMNS: 120
