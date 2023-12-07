@@ -117,9 +117,13 @@ def create_or_connect_db(db_name: str = "") -> sqlite3.Connection:
 
 def query_prolific_author(cursor: sqlite3.Cursor, mode: str = "DESC") -> int:
     """Find author ID of most prolific author."""
+    # TODO: Write query for the metadata table to retrieve the author
+    #       who has published the most stories. You must add the update
+    #       query in the empty string that is provided as a parameter
+    #       to the execute function. Please note that you should consider
+    #       ways in which you can use f-strings to implement this function.
     cursor.execute(
-        # TODO: Write query for the metadata table to retrieve the author
-        #       who has published the most stories
+        """""",
     )
     individual = cursor.fetchone()
     return individual[0]
@@ -147,10 +151,7 @@ def query_stories_by_author(cursor: sqlite3.Cursor, author_id: int = 1) -> list:
     #       retrieve the date, section name, title of article, first name and
     #       last name. You must add the update query in the empty string that is
     #       provided as a parameter to the execute function.
-    cursor.execute(
-        """""",
-        (author_id,)
-    )
+    cursor.execute("""""", (author_id,))
     return [
         f'{date} [{section}] "{title}" {fname} {lname}'
         for date, section, title, fname, lname in cursor.fetchall()
@@ -176,10 +177,7 @@ def query_author_by_id(cursor: sqlite3.Cursor, author_id: int = 1) -> str:
     # TODO: Write query to find an author fname and lname given an author_id
     # You must add the update query in the empty string that is provided as a
     # parameter to the execute function.
-    cursor.execute(
-        "",
-        (author_id,)
-    )
+    cursor.execute("", (author_id,))
     records = cursor.fetchall()
     return f"{records[0][0]} {records[0][1]}"
 
