@@ -42,6 +42,8 @@ def test_part_two():
         return False
     except sqlite3.OperationalError:
         return ""
+    except sqlite3.ProgrammingError:
+        return ""
     except AttributeError:
         return ""
 
@@ -62,6 +64,11 @@ def test_part_three():
             "It appears that there's an issue with the query; are all tables created?"
         )
         return ""
+    except sqlite3.ProgrammingError:
+        print(
+            "It appears that were missing parameters to the query; did you add them all?"
+        )
+        return ""
     except AttributeError:
         print("It appears that there're still some queries to finish.")
         return ""
@@ -80,6 +87,8 @@ def test_part_four():
         return False
     except sqlite3.OperationalError:
         return ""
+    except sqlite3.ProgrammingError:
+        return ""
     except AttributeError:
         return ""
 
@@ -96,6 +105,8 @@ def test_part_five():
     except AssertionError:
         return False
     except sqlite3.OperationalError:
+        return ""
+    except sqlite3.ProgrammingError:
         return ""
     except AttributeError:
         return ""
