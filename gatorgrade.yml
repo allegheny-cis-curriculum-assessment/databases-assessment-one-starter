@@ -1,3 +1,4 @@
+
 setup: |
   echo "🐊 Attempt to install ruff"
   echo "🐊 Will not re-install if already installed"
@@ -114,7 +115,7 @@ setup: |
   objectives: "SELO2,SELO3,SELO4,DSLO3"
   options:
     command: "python source/assessment.py"
-    fragment: "{'author': 46, 'status': 'ACTIVE', 'updated': True} / True"
+    fragment: "{'author': '46', 'status': 'ACTIVE', 'updated': True} / True"
     count: 1
     exact: true
 

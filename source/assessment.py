@@ -73,7 +73,9 @@ from evalugator import constants, run, test
 
 # > CREATE TABLE authors(id, lname, fname, status);
 # > .mode csv
-# > .import data/authors.csv authors
+# > .import data/authors.csv authors --skip 1
+
+# All CSV files contain column headers, requiring each import command to skip 1 row.
 
 # TODO: Remember to commit all your changes to the database file (db/news_data.db)!
 

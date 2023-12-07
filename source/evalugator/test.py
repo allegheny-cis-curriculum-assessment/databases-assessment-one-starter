@@ -33,7 +33,7 @@ def test_part_two():
     try:
         part_one_connection = assessment.create_or_connect_db(FILE_NAME)
         part_two_output = assessment.query_prolific_author(part_one_connection.cursor())
-        assert part_two_output == 46
+        assert part_two_output == "46"
         return True
     except AssertionError:
         return False
@@ -82,7 +82,7 @@ def test_part_five():
             part_two_output,
             "ACTIVE"
         )
-        assert part_five_output == {'author': 46, 'status': 'ACTIVE', 'updated': True}
+        assert part_five_output == {'author': '46', 'status': 'ACTIVE', 'updated': True}
         return True
     except AssertionError:
         return False
