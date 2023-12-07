@@ -196,6 +196,9 @@ def query_author_by_id(cursor: sqlite3.Cursor, author_id: int = 1) -> str:
 #   whose ID matches the author_id parameter
 # - Sets the status equal to a string value (status) passed to the function
 
+# TODO: Make sure that the source code of the update_author_status function
+# adheres to the industry standard guidelines for formatting as enforced by ruff.
+
 
 def update_author_status(
     conn: sqlite3.Connection,
@@ -207,7 +210,8 @@ def update_author_status(
     # TODO: Write update query to change the status of an author in the authors
     #       table, given the and author_id. You must add the update query in the
     #       empty string that is provided as a parameter to the execute function.
-    cursor.execute("", (status, author_id))
+    cursor.execute("",
+                   (status, author_id))
     conn.commit()
     response = {"author": author_id, "status": status, "updated": False}
     if cursor.rowcount == 1:
