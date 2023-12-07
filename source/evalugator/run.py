@@ -38,11 +38,14 @@ def run_part_two():
         part_two_output = assessment.query_prolific_author(part_one_connection.cursor())
         return part_two_output
     except sqlite3.OperationalError:
-        print("It appears that there's an issue with the query; are all tables created?")
+        print(
+            "It appears that there's an issue with the query; are all tables created?"
+        )
         return ""
     except AttributeError:
         print("It appears that there're still some queries to finish.")
         return ""
+
 
 def run_part_three():
     """Run the function defined by part-three of the assessment."""
@@ -54,11 +57,14 @@ def run_part_three():
         )
         return part_three_output
     except sqlite3.OperationalError:
-        print("It appears that there's an issue with the query; are all tables created?")
+        print(
+            "It appears that there's an issue with the query; are all tables created?"
+        )
         return ""
     except AttributeError:
         print("It appears that there're still some queries to finish.")
         return ""
+
 
 def run_part_four():
     """Run the function defined by part-four of the assessment."""
@@ -70,11 +76,14 @@ def run_part_four():
         )
         return part_four_output
     except sqlite3.OperationalError:
-        print("It appears that there's an issue with the query; are all tables created?")
+        print(
+            "It appears that there's an issue with the query; are all tables created?"
+        )
         return ""
     except AttributeError:
         print("It appears that there're still some queries to finish.")
         return ""
+
 
 def run_part_five():
     """Run the function defined by part-five of the assessment."""
@@ -89,7 +98,9 @@ def run_part_five():
         )
         return part_five_output
     except sqlite3.OperationalError:
-        print("It appears that there's an issue with the query; are all tables created?")
+        print(
+            "It appears that there's an issue with the query; are all tables created?"
+        )
         return ""
     except AttributeError:
         print("It appears that there're still some queries to finish.")
