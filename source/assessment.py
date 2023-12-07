@@ -92,6 +92,7 @@ from evalugator import constants, run, test
 # - Creates a SQLITE3 connection to the file name at correct file location
 # - Returns the successful connection
 
+
 def create_or_connect_db(db_name: str = "") -> sqlite3.Connection:
     """Create or connect to the database."""
     conn = None
@@ -113,6 +114,7 @@ def create_or_connect_db(db_name: str = "") -> sqlite3.Connection:
 # - Constructs a query to determine which author in the table has authored the
 #   most stories
 
+
 def query_prolific_author(cursor: sqlite3.Cursor, mode: str = "DESC") -> int:
     """Find author ID of most prolific author."""
     cursor.execute(
@@ -121,6 +123,7 @@ def query_prolific_author(cursor: sqlite3.Cursor, mode: str = "DESC") -> int:
     )
     individual = cursor.fetchone()
     return individual[0]
+
 
 # Part Three
 
@@ -136,6 +139,7 @@ def query_prolific_author(cursor: sqlite3.Cursor, mode: str = "DESC") -> int:
 
 # - Constructs a query which joins all three tables on the id fields of each table
 #   and returns the requested data
+
 
 def query_stories_by_author(cursor: sqlite3.Cursor, author_id: int = 1) -> list:
     """Find all stories by a given author by ID, return relevant data."""
@@ -164,6 +168,7 @@ def query_stories_by_author(cursor: sqlite3.Cursor, author_id: int = 1) -> list:
 # - Constructs a query which returns the fname and lname fields for the provided
 #   author_id
 
+
 def query_author_by_id(cursor: sqlite3.Cursor, author_id: int = 1) -> str:
     """Find the author name by ID only."""
     cursor.execute(
@@ -188,6 +193,7 @@ def query_author_by_id(cursor: sqlite3.Cursor, author_id: int = 1) -> str:
 #   whose ID matches the author_id parameter
 # - Sets the status equal to a string value (status) passed to the function
 
+
 def update_author_status(
     conn: sqlite3.Connection,
     cursor: sqlite3.Cursor,
@@ -195,11 +201,10 @@ def update_author_status(
     status: str = "INACTIVE",
 ) -> dict:
     """Change status of an author to value of status string."""
-    cursor.execute(
-        # TODO: Write update query to change the status of an author in the authors
-        #       table, given the and author_id
-        (status, author_id)
-    )
+    # TODO: Write update query to change the status of an author in the authors
+    #       table, given the and author_id. You must add the update query in the
+    #       empty string that is provided as a parameter to the execute function.
+    cursor.execute("", (status, author_id))
     conn.commit()
     response = {"author": author_id, "status": status, "updated": False}
     if cursor.rowcount == 1:
