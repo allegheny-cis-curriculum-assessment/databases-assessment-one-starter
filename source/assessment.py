@@ -171,8 +171,11 @@ def query_stories_by_author(cursor: sqlite3.Cursor, author_id: int = 1) -> list:
 
 def query_author_by_id(cursor: sqlite3.Cursor, author_id: int = 1) -> str:
     """Find the author name by ID only."""
+    # TODO: Write query to find an author fname and lname given an author_id
+    # You must add the update query in the empty string that is provided as a
+    # parameter to the execute function.
     cursor.execute(
-        # TODO: Write query to find an author fname and lname given an author_id
+        "",
         (author_id,)
     )
     records = cursor.fetchall()
